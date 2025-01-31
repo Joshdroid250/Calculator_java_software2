@@ -22,10 +22,16 @@ public class CalculatorLogic {
             case '+': result = num1 + num2; break;
             case '-': result = num1 - num2; break;
             case '*': result = num1 * num2; break;
-            case '/': result = num1 / num2; break;
+            case '/':
+                if (num2 == 0) {
+                    throw new ArithmeticException("Cannot divide by zero");
+                }
+                result = num1 / num2;
+                break;
         }
         return result;
     }
+
 
     public double negate(double num) {
         return num * -1;
